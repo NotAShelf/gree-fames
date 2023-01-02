@@ -13,5 +13,15 @@
         "humble": "8a9296",
         "itch": "fa5c5c",
         "unknown": "000000"
+    },
+    "icons": {
+        "steam": "https://www.svgrepo.com/show/349516/steam.svg",
+        "epic": "https://www.svgrepo.com/show/424895/logo-play-epic-games.svg",
+        "gog": "https://www.svgrepo.com/show/341859/gog-com.svg",
+        "uplay": "https://www.svgrepo.com/show/349548/uplay.svg",
+        "origin": "https://www.svgrepo.com/show/394324/origin.svg",
+        "humble": "https://www.svgrepo.com/show/341920/humble-bundle.svg",
+        "itch": "https://www.svgrepo.com/show/341939/itch-io.svg",
+        "unknown": "https://www.svgrepo.com/show/436868/question-square-fill.svg"
     }
 }
