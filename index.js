@@ -2,6 +2,14 @@ const request = require('request');
 const FeedParser = require('feedparser');
 const { WebhookClient, EmbedBuilder, Embed } = require('discord.js');
 const { post } = require('request');
+
+try {
+    require('./config.json');
+} catch (error) {
+    console.error('config.json does not exist. Please create it and try again.');
+    process.exit(1);
+}
+
 const config = require('./config.json')
 const webhook = new WebhookClient({id: config.webhook.id, token: config.webhook.token});
 
