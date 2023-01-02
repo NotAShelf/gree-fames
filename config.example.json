@@ -3,5 +3,15 @@
     "webhook": {
         "id": "",
         "token": ""
+    },
+    "colors": {
+        "steam": "171a21 ",
+        "epic": "ffffff",
+        "gog": "581c6c",
+        "uplay": "00b3e6",
+        "origin": "407e11",
+        "humble": "8a9296",
+        "itch": "fa5c5c",
+        "unknown": "000000"
     }
 }

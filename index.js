@@ -5,6 +5,18 @@ const { post } = require('request');
 const config = require('./config.json')
 const webhook = new WebhookClient({id: config.webhook.id, token: config.webhook.token});
 
+// Per-platform colors 
+const colors = {
+    steam: config.colors.steam,
+    epic: config.colors.epic,
+    gog: config.colors.gog,
+    uplay: config.colors.uplay,
+    origin: config.colors.origin,
+    humble: config.colors.humble,
+    itch: config.colors.itch,
+    unknown: config.colors.unknown
+};
+
 function getPosts(url) {
     return new Promise((resolve, reject) => {
       const req = request(url);
@@ -58,18 +70,23 @@ function isGree(post) {
       .catch((error) => {
         console.error(error);
       });
-  }, 60000); // run every 60 seconds
+  }, 60000); // run every 60 seconds TODO: make this configurable
   
 function sendEmbed(post, webhook) {
+
+    const platform = post.title.split(" ")[0].replace("[", "").replace("]", "").toLowerCase();
+    const color = colors[platform] || colors.unknown;
+
     // Create a new embed
     const embed = new EmbedBuilder()
       .setTitle(post.title)
-      .setColor('34A1EB');
+      .setColor(color)
     if (post.link != undefined)
         embed.setURL(post.link)
     if (post.image.url != undefined)
         embed.setImage(post.image.url)
     
+
     // Send the embed to the webhook
     webhook.send({embeds:[embed]});
 }
